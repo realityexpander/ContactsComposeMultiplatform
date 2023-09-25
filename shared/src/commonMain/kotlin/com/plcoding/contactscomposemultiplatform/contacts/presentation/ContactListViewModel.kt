@@ -158,7 +158,8 @@ class ContactListViewModel(
                     isSelectedContactSheetOpen = true
                 ) }
             }
-            else -> Unit
+//            else -> Unit
+            ContactListEvent.OnAddPhotoClicked -> Unit  // handled in ContactListScreen
         }
     }
 }

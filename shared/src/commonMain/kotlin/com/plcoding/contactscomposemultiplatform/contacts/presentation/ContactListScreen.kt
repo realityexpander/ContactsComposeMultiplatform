@@ -102,6 +102,8 @@ fun ContactListScreen(
         isOpen = state.isAddContactSheetOpen,
         onEvent = { event ->
             if(event is ContactListEvent.OnAddPhotoClicked) {
+                // Trap the event and call the image picker, which will call the registered picker
+                // This keeps the image picker out of the viewmodel, and reduces ping-ponging back to this screen
                 imagePicker.pickImage()
             }
             onEvent(event)
