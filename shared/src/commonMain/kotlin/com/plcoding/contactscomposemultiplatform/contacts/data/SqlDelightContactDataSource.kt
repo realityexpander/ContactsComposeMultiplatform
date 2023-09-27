@@ -25,6 +25,13 @@ class SqlDelightContactDataSource(
             .asFlow()
             .mapToList()
             .map { contactEntities ->
+
+                // serially map each contact entity to a contact
+                // contactEntities.map { contactEntity ->
+                //    contactEntity.toContact(imageStorage)
+                // }
+
+                // parallelize the mapping of each contact entity to a contact
                 supervisorScope {
                     contactEntities
                         .map { contactEntity ->
