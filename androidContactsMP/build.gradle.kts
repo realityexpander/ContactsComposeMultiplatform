@@ -50,5 +50,4 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.7.0")
 
     implementation("com.google.maps.android:maps-compose:2.15.0")
-//    implementation("com.google.android.gms:play-services-maps:18.1.0")
 }
