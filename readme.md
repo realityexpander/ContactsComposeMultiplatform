@@ -1,6 +1,6 @@
 KMP Android & iOS contact manager
 
-From video:
+Forked From Philip Lackner's video:
 https://www.youtube.com/watch?v=XWSzbMnpAgI
 
 
@@ -16,3 +16,7 @@ https://www.youtube.com/watch?v=XWSzbMnpAgI
 
 - Composables - Pre-built UI components
 - https://www.composables.com/components/material3/alertdialog
+
+
+Securing API keys with Environment Variables
+https://www.masrinastudio.com/post/securing-api-keys-xcode-guide/#:~:text=Use%20a%20Keychain%3A%20The%20iOS,it%20from%20your%20app%20code.

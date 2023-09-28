@@ -7,4 +7,9 @@ struct iOSApp: App {
 			ContentView()
 		}
 	}
+
+//	init() {
+//        // Initialize the database
+//        GMSServices.provideAPIKey("12345")
+//    }
 }

@@ -2,14 +2,15 @@ plugins {
     id("com.android.application")
     kotlin("android")
     id("org.jetbrains.compose")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
-    namespace = "com.plcoding.contactscomposemultiplatform.android"
+    namespace = "com.realityexpander.contactscomposemultiplatform.android"
     compileSdk = 33
     defaultConfig {
-        applicationId = "com.plcoding.contactscomposemultiplatform.android"
-        minSdk = 24
+        applicationId = "com.realityexpander.contactscomposemultiplatform.android"
+        minSdk = 30
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -20,7 +21,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.4"
     }
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -47,4 +48,7 @@ dependencies {
     implementation("androidx.compose.foundation:foundation:1.4.0")
     implementation("androidx.compose.material:material:1.4.0")
     implementation("androidx.activity:activity-compose:1.7.0")
+
+    implementation("com.google.maps.android:maps-compose:2.15.0")
+//    implementation("com.google.android.gms:play-services-maps:18.1.0")
 }
