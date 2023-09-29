@@ -21,3 +21,7 @@ https://www.youtube.com/watch?v=XWSzbMnpAgI
 
 Securing API keys with Environment Variables
 - https://www.masrinastudio.com/post/securing-api-keys-xcode-guide/#:~:text=Use%20a%20Keychain%3A%20The%20iOS,it%20from%20your%20app%20code.
+
+Locations Permissions handling with KMP
+- https://medium.com/@adrianwitaszak/kotlin-multiplatform-mobile-location-permission-and-location-service-setting-4ab35de48750
+
