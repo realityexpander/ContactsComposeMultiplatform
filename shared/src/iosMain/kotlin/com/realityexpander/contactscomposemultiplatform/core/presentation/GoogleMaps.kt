@@ -1,5 +1,6 @@
 package com.realityexpander.contactscomposemultiplatform.core.presentation
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.interop.UIKitView
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
@@ -32,11 +34,19 @@ import kotlinx.cinterop.CValue
 import kotlinx.cinterop.useContents
 import platform.CoreLocation.CLLocationCoordinate2D
 import platform.CoreLocation.CLLocationCoordinate2DMake
+import platform.Foundation.NSSelectorFromString
 import platform.MapKit.MKAnnotationProtocol
+import platform.MapKit.MKAnnotationView
 import platform.MapKit.MKMapCamera
 import platform.MapKit.MKMapView
 import platform.MapKit.MKMapViewDelegateProtocol
+import platform.MapKit.MKOverlayProtocol
+import platform.MapKit.MKOverlayRenderer
 import platform.MapKit.MKPointAnnotation
+import platform.MapKit.MKUserTrackingMode
+import platform.UIKit.UIButton
+import platform.UIKit.UIButtonTypeDetailDisclosure
+import platform.UIKit.UIControlEventTouchUpInside
 import platform.UIKit.UIEdgeInsetsMake
 import platform.darwin.NSObject
 
@@ -89,7 +99,7 @@ actual fun GoogleMaps(
         }
     ) {
 
-         if(false) {
+         if(true) {
              // MapKit
              UIKitView(
                  modifier = modifier.fillMaxSize(),
@@ -105,7 +115,6 @@ actual fun GoogleMaps(
 //                        showSomething = false
 //                    }
 
-
 //                    override fun mapView(mapView: MKMapView, didSelectAnnotation: MKAnnotationProtocol) {
 //                        showSomething = true
 //                    }
@@ -113,13 +122,32 @@ actual fun GoogleMaps(
 //                        showSomething = false
 //                    }
 
-
 //                    override fun mapView(mapView: MKMapView, didUpdateUserLocation: MKUserLocation) {
 //                        showSomething = true
 //                    }
 //                    override fun mapViewDidFinishLoadingMap(mapView: MKMapView) {
 //                        showSomething = true
 //                    }
+
+//                        override fun mapView(mapView: MKMapView, viewForAnnotation: MKAnnotationProtocol): MKAnnotationView {
+//                            showSomething = true
+//
+//                            return MKAnnotationView().apply {
+//                                canShowCallout = true
+//                                rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonTypeDetailDisclosure).apply {
+//                                    addTarget(
+//                                        this,
+//                                        NSSelectorFromString("showDetails"),
+//                                        UIControlEventTouchUpInside
+//                                    )
+//                                }
+//                                annotation = viewForAnnotation
+//                                draggable = true
+//                                enabled = true
+//                            }
+//                        }
+//
+//                        override fun mapViewAnnotationViewDidChangeDragState(mapView: MKMapView, view: MKAnnotationView, newState: MK
                      }
 
                      mkMapView
@@ -130,23 +158,22 @@ actual fun GoogleMaps(
                      }
 
                      markers?.forEach { marker ->
-                         println("marker = ${marker.position.latitude}, ${marker.position.longitude}")
-                         val annotation = object : NSObject(), MKAnnotationProtocol {
-                             override fun coordinate(): CValue<CLLocationCoordinate2D> {
-                                 return CLLocationCoordinate2DMake(
-                                     marker.position.latitude,
-                                     marker.position.longitude
-                                 )
-                             }
-
-                             override fun title(): String {
-                                 return marker.title
-                             }
-
-                             override fun subtitle(): String {
-                                 return "Your mom"
-                             }
-                         }
+//                         val annotation = object : NSObject(), MKAnnotationProtocol {
+//                             override fun coordinate(): CValue<CLLocationCoordinate2D> {
+//                                 return CLLocationCoordinate2DMake(
+//                                     marker.position.latitude,
+//                                     marker.position.longitude
+//                                 )
+//                             }
+//
+//                             override fun title(): String {
+//                                 return marker.title
+//                             }
+//
+//                             override fun subtitle(): String {
+//                                 return "Your mom"
+//                             }
+//                         }
 //                    annotation.setCoordinate(CLLocationCoordinate2DMake(
 //                        marker.position.latitude,
 //                        marker.position.longitude
@@ -172,7 +199,7 @@ actual fun GoogleMaps(
          }
 
          // Google Maps
-         if(true) {
+         if(false) {
             UIKitView(
                 modifier = modifier.fillMaxSize(),
                 interactive = true,
@@ -188,11 +215,11 @@ actual fun GoogleMaps(
 //                            println(markers2)
 //                        }
 
-    //                    override fun didTapMyLocationButtonForMapView(mapView: GMSMapView): Boolean {
-    //                        showSomething = true
-    //
-    //                        return true
-    //                    }
+//                        override fun didTapMyLocationButtonForMapView(mapView: GMSMapView): Boolean {
+//                            showSomething = true
+//
+//                            return true
+//                        }
 
 //                        override fun mapViewDidFinishTileRendering(mapView: cocoapods.GoogleMaps.GMSMapView) {
 //                            println("mapViewDidFinishTileRendering")
@@ -284,7 +311,11 @@ actual fun GoogleMaps(
                 horizontalAlignment = Alignment.Start
             ) {
                 if(showSomething) {
-                    Text("SOMETHING")
+                    Text(
+                        "SOMETHING",
+                        modifier = Modifier
+                            .background(color = Color.Red)
+                    )
                 }
 
                 SwitchWithLabel(
