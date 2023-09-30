@@ -91,6 +91,7 @@ kotlin {
                 implementation("com.squareup.sqldelight:runtime:1.5.5")
                 implementation("com.squareup.sqldelight:coroutines-extensions:1.5.5")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+                implementation("com.google.android.gms:play-services-maps:18.1.0")
             }
         }
         val commonTest by getting {

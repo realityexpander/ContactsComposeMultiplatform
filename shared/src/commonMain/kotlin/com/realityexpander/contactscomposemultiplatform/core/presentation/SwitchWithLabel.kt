@@ -55,7 +55,7 @@ fun SwitchWithLabel(
                 modifier = modifier
                     .alpha(alpha = 1.0f)
                     .offset(x = 1.dp, y = 1.dp)
-                .blur(radius = 2.dp)
+                .blur(radius = 1.dp)
                 ,
                 color = if(darkOnLightTextColor) Color.Black else Color.White, // colorResource(id = R.color.black),
                 text = label

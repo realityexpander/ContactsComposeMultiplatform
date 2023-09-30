@@ -23,8 +23,17 @@ class CameraPosition(
 @Composable
 expect fun GoogleMaps(
     modifier: Modifier,
+    isControlsVisible: Boolean = true,
+    onMarkerClick: ((MapMarker) -> Unit)? = {},
+    onMapClick: ((LatLong) -> Unit)? = {},
+    onMapLongClick: ((LatLong) -> Unit)? = {},
     markers: List<MapMarker>? = null,
     cameraPosition: CameraPosition? = null,
     cameraPositionLatLongBounds: CameraPositionLatLongBounds? = null,
-    polyLine: List<LatLong>? = null
+    polyLine: List<LatLong>? = null,
 )
+
+
+//onMarkerClick: (MapMarker) -> Unit = {},
+//onMapClick: (LatLong) -> Unit = {},
+//onMapLongClick: (LatLong) -> Unit = {},

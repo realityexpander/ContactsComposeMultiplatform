@@ -20,7 +20,7 @@ fun App(
     darkTheme: Boolean,
     dynamicColor: Boolean,
     appModule: AppModule,
-    imagePicker: ImagePicker
+    imagePicker: ImagePicker,
 ) {
     ContactsTheme(
         darkTheme = darkTheme,

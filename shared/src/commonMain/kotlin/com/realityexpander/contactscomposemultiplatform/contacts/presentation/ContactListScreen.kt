@@ -114,8 +114,8 @@ fun ContactListScreen(
                             MapMarker(
                                 key = "Contact1", //contact.id,
                                 position = LatLong(
-                                    latitude = 0.0, //contact.latitude,
-                                    longitude = 0.0, //contact.longitude
+                                    latitude = 18.98603, //0.0, //contact.latitude,
+                                    longitude = -99.09914, //contact.longitude
                                 ),
                                 title = "Contact1", //contact.name,
                                 alpha = 1.0f

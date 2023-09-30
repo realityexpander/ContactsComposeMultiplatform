@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="iosContactsMP" type="KmmRunConfiguration" factoryName="iOS Application" CONFIG_VERSION="1" EXEC_TARGET_ID="42608A8F-4F9F-4C9D-8283-37469C804491" XCODE_PROJECT="$PROJECT_DIR$/iosContactsMP/iosContactsMP.xcworkspace" XCODE_CONFIGURATION="Debug" XCODE_SCHEME="iosContactsMP">
+  <configuration default="false" name="iosContactsMP" type="KmmRunConfiguration" factoryName="iOS Application" CONFIG_VERSION="1" EXEC_TARGET_ID="9ae44c38fbf06004d2e69bd875345b0eb1387b8b" XCODE_PROJECT="$PROJECT_DIR$/iosContactsMP/iosContactsMP.xcworkspace" XCODE_CONFIGURATION="Debug" XCODE_SCHEME="iosContactsMP">
     <method v="2">
       <option name="com.jetbrains.kmm.ios.BuildIOSAppTask" enabled="true" />
     </method>

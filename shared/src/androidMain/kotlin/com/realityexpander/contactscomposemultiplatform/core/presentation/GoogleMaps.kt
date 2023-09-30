@@ -29,6 +29,10 @@ import com.google.maps.android.compose.rememberMarkerState
 @Composable
 actual fun GoogleMaps(
     modifier: Modifier,
+    isControlsVisible: Boolean,
+    onMarkerClick: ((MapMarker) -> Unit)?,
+    onMapClick: ((LatLong) -> Unit)?,
+    onMapLongClick: ((LatLong) -> Unit)?,
     markers: List<MapMarker>?,
     cameraPosition: CameraPosition?,
     cameraPositionLatLongBounds: CameraPositionLatLongBounds?,
@@ -46,7 +50,7 @@ actual fun GoogleMaps(
         )) }
     var properties by remember {
         mutableStateOf(MapProperties(
-                isMyLocationEnabled = true,
+                isMyLocationEnabled = false,
                 minZoomPreference = 1f,
                 maxZoomPreference = 20f,
             )
@@ -89,6 +93,12 @@ actual fun GoogleMaps(
             modifier = modifier,
             uiSettings = uiSettings,
             properties = properties,
+            onMapClick = { latLng: LatLng ->
+                     onMapClick?.let { nativeFun ->
+                         nativeFun(LatLong(latLng.latitude, latLng.longitude))
+                     }
+                },
+
         ) {
             markers?.forEach { marker ->
                 Marker(
@@ -121,33 +131,35 @@ actual fun GoogleMaps(
             }
         }
 
-        Column(
-            modifier = Modifier
-                .padding(16.dp)
-                .align(Alignment.BottomStart),
-            horizontalAlignment = Alignment.Start
-        ) {
-            SwitchWithLabel(
-                label = "My location",
-                state = properties.isMyLocationEnabled,
-                darkOnLightTextColor = properties.mapType == MapType.SATELLITE
+        if(isControlsVisible) {
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .align(Alignment.BottomStart),
+                horizontalAlignment = Alignment.Start
             ) {
-                uiSettings =
-                    uiSettings.copy(myLocationButtonEnabled = !uiSettings.myLocationButtonEnabled)
-                properties =
-                    properties.copy(isMyLocationEnabled = !properties.isMyLocationEnabled)
-            }
-            SwitchWithLabel(
-                label = "Satellite",
-                state = properties.mapType == MapType.SATELLITE,
-                darkOnLightTextColor = properties.mapType == MapType.SATELLITE
-            ) {
-                properties = properties.copy(
-                    mapType = if (properties.mapType == MapType.SATELLITE)
-                        MapType.NORMAL
-                    else
-                        MapType.SATELLITE
-                )
+                SwitchWithLabel(
+                    label = "My location",
+                    state = properties.isMyLocationEnabled,
+                    darkOnLightTextColor = properties.mapType == MapType.SATELLITE
+                ) {
+                    uiSettings =
+                        uiSettings.copy(myLocationButtonEnabled = !uiSettings.myLocationButtonEnabled)
+                    properties =
+                        properties.copy(isMyLocationEnabled = !properties.isMyLocationEnabled)
+                }
+                SwitchWithLabel(
+                    label = "Satellite",
+                    state = properties.mapType == MapType.SATELLITE,
+                    darkOnLightTextColor = properties.mapType == MapType.SATELLITE
+                ) {
+                    properties = properties.copy(
+                        mapType = if (properties.mapType == MapType.SATELLITE)
+                            MapType.NORMAL
+                        else
+                            MapType.SATELLITE
+                    )
+                }
             }
         }
     }
