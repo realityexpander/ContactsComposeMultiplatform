@@ -31,6 +31,8 @@ import cocoapods.GoogleMaps.animateWithCameraUpdate
 import cocoapods.GoogleMaps.kGMSTypeNormal
 import cocoapods.GoogleMaps.kGMSTypeSatellite
 import platform.CoreLocation.CLLocationCoordinate2DMake
+import platform.MapKit.MKAnnotationProtocol
+import platform.MapKit.MKAnnotationView
 import platform.MapKit.MKMapCamera
 import platform.MapKit.MKMapView
 import platform.MapKit.MKMapViewDelegateProtocol
@@ -117,25 +119,25 @@ actual fun GoogleMaps(
 //                        showSomething = true
 //                    }
 
-//                        override fun mapView(mapView: MKMapView, viewForAnnotation: MKAnnotationProtocol): MKAnnotationView {
-//                            showSomething = true
+//                    override fun mapView(mapView: MKMapView, viewForAnnotation: MKAnnotationProtocol): MKAnnotationView {
+//                        showSomething = true
 //
-//                            return MKAnnotationView().apply {
-//                                canShowCallout = true
-//                                rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonTypeDetailDisclosure).apply {
-//                                    addTarget(
-//                                        this,
-//                                        NSSelectorFromString("showDetails"),
-//                                        UIControlEventTouchUpInside
-//                                    )
-//                                }
-//                                annotation = viewForAnnotation
-//                                draggable = true
-//                                enabled = true
+//                        return MKAnnotationView().apply {
+//                            canShowCallout = true
+//                            rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonTypeDetailDisclosure).apply {
+//                                addTarget(
+//                                    this,
+//                                    NSSelectorFromString("showDetails"),
+//                                    UIControlEventTouchUpInside
+//                                )
 //                            }
+//                            annotation = viewForAnnotation
+//                            draggable = true
+//                            enabled = true
 //                        }
+//                    }
 //
-//                        override fun mapViewAnnotationViewDidChangeDragState(mapView: MKMapView, view: MKAnnotationView, newState: MK
+//                    override fun mapViewAnnotationViewDidChangeDragState(mapView: MKMapView, view: MKAnnotationView, newState: MK
                      }
 
                      mkMapView

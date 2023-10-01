@@ -32,12 +32,6 @@ kotlin {
         }
     }
 
-//    cocoapods {
-//        pod("GoogleMaps") {
-//            version = "8.2.0"
-//        }
-//    }
-
     cocoapods {
         // Required properties
         // Specify the required Pod version here. Otherwise, the Gradle project version is used.
@@ -187,6 +181,12 @@ configurations.named("releaseFrameworkIosFat").configure {
         attribute(myAttribute, "release-fat2")
     }
 }
+//configurations.named("debugFrameworkIosFat").configure {
+//    attributes {
+//        // put a unique attribute
+//        attribute(myAttribute, "debug-fat1")
+//    }
+//}
 configurations.named("podDebugFrameworkIosSimulatorArm64").configure {
     attributes {
         // put a unique attribute
