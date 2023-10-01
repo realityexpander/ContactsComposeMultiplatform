@@ -43,3 +43,7 @@ Locations Permissions handling with KMP
   - https://github.com/icerockdev/moko-maps/blob/master/sample/android-app/src/main/java/com/icerockdev/app/GoogleMapsActivity.kt
   - https://github.com/icerockdev/moko-maps/blob/master/maps-google/src/androidMain/kotlin/dev/icerock/moko/maps/google/GoogleMarker.kt
   - 
+
+- Maps in Compose-multiplatform
+  - https://github.com/JetBrains/compose-multiplatform/discussions/3264
+  - 

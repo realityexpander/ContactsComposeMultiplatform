@@ -36,6 +36,14 @@ struct ComposeView: UIViewControllerRepresentable {
 
 // LEAVE FOR REFERENCE
 // class Coordinator: NSObject, MKMapViewDelegate {
+// // https://stackoverflow.com/questions/68030024/cant-add-tap-gesture-recognizer-to-swiftui-mkmapview-uiviewrepresentable
+//     var control: MapView
+//     let sfCoord = CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194)
+
+//     init(_ control: MapView) {
+//         self.control = control
+//     }
+
 //     //Delegate function to listen for annotation selection on your map
 //     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 //         if let annotation = view.annotation {
@@ -52,7 +60,19 @@ struct ComposeView: UIViewControllerRepresentable {
 //         print("Map loaded")
 //     }
 //
-//     func
+//     @objc func addAnnotationOnTapGesture(sender: UITapGestureRecognizer) {
+//         if sender.state == .ended {
+//             print("in addAnnotationOnTapGesture")
+//             let point = sender.location(in: control.myMapView)
+//             print("point is \(point)")
+//             let coordinate = control.myMapView?.convert(point, toCoordinateFrom: control.myMapView)
+//             print("coordinate?.latitude is \(String(describing: coordinate?.latitude))")
+//             let annotation = MKPointAnnotation()
+//             annotation.coordinate = coordinate ?? sfCoord
+//             annotation.title = "Start"
+//             control.myMapView?.addAnnotation(annotation)
+//         }
+//     }
 // }
 //
 // struct Donator {

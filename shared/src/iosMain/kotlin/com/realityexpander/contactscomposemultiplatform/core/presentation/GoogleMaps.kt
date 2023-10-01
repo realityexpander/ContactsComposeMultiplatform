@@ -30,23 +30,11 @@ import cocoapods.GoogleMaps.GMSPolyline
 import cocoapods.GoogleMaps.animateWithCameraUpdate
 import cocoapods.GoogleMaps.kGMSTypeNormal
 import cocoapods.GoogleMaps.kGMSTypeSatellite
-import kotlinx.cinterop.CValue
-import kotlinx.cinterop.useContents
-import platform.CoreLocation.CLLocationCoordinate2D
 import platform.CoreLocation.CLLocationCoordinate2DMake
-import platform.Foundation.NSSelectorFromString
-import platform.MapKit.MKAnnotationProtocol
-import platform.MapKit.MKAnnotationView
 import platform.MapKit.MKMapCamera
 import platform.MapKit.MKMapView
 import platform.MapKit.MKMapViewDelegateProtocol
-import platform.MapKit.MKOverlayProtocol
-import platform.MapKit.MKOverlayRenderer
 import platform.MapKit.MKPointAnnotation
-import platform.MapKit.MKUserTrackingMode
-import platform.UIKit.UIButton
-import platform.UIKit.UIButtonTypeDetailDisclosure
-import platform.UIKit.UIControlEventTouchUpInside
 import platform.UIKit.UIEdgeInsetsMake
 import platform.darwin.NSObject
 
@@ -99,8 +87,8 @@ actual fun GoogleMaps(
         }
     ) {
 
+         // MapKit
          if(true) {
-             // MapKit
              UIKitView(
                  modifier = modifier.fillMaxSize(),
                  interactive = true,
